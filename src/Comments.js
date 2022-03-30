@@ -7,36 +7,32 @@ import {useDispatch, useSelector} from "react-redux";
 
 function Comments (props){
     const [textComment, setTextComment] = useState("");
-    const comments = useSelector(state=>{
+    const comments = useSelector(state=> {
     const {commentsReducer} = state;
     return commentsReducer.comments;
     });
     const dispatch = useDispatch();
     
     
-    const handleInput=(e)=>{
+    const handleInput = (e)=>{
     setTextComment(e.target.value);
     }
 
-    const handleSumbit=(e)=>{
+    const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log("sumbit textComment>>>",textComment)
     const  id = uniqid();
     dispatch(commentCreate(textComment,id));
     }
 
-    
-    
     return (
         <div className="card-comments">
-          <form className="comments-item-create">
+          <form onSubmit={handleSubmit} className="comments-item-create">
           <input type="text" value={textComment}onChange={handleInput}/>
-              <input type="sumbit" hidden/>
+              <input type="submit" hidden/>
               </form>  
-              {comments.length &&comments.map(res=>{
+              {!!comments.length && comments.map(res=>{
                   return <SingleComment key ={res.id} data={res}/>
               })}
-              <SingleComment/>
         </div>
     )
 }
