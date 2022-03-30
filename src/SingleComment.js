@@ -1,6 +1,7 @@
 import {useState} from "react";
 
 function SingleComment (props){
+    const [textComment, setTextComment] = useState("";)
     console.log("swingle comment props>>>>", props);
     
     return (
