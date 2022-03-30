@@ -15,6 +15,11 @@ switch(action.type){
             ...state,
             likes:state.likes+1
         }
+        case "DECREMENT":
+        return{
+            ...state,
+            likes:state.likes-1
+        }
         default:
             return state;
 }
