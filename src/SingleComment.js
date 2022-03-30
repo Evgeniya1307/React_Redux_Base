@@ -1,3 +1,5 @@
+import {useState} from "react";
+
 function SingleComment (props){
     console.log("swingle comment props>>>>", props);
     
