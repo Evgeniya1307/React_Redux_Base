@@ -1,0 +1,2 @@
+
+export functionspamFilter(stor)
