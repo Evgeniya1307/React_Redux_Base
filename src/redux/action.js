@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENT, INPUT_TEXT, COMMENT_CREATE,  COMMENT_UPDATE, COMMENT_DELETE, COMMENTS_LOAD, LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF  } from "./types";
+import { INCREMENT, DECREMENT, INPUT_TEXT, COMMENT_CREATE,  COMMENT_UPDATE, COMMENT_DELETE, COMMENTS_LOAD, LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF , ERROR_DISPLAY_OFF, ERROR_DISPLAY_ON  } from "./types";
 
 
 export  function incrementLikes() {
@@ -54,13 +54,28 @@ export  function loaderOff() {
     }
 }
 
+export  function errorOn(text) {
+    return {
+        type: ERROR_DISPLAY_ON,
+        text
+    }
+}
+
+
+export  function errorOff() {
+    return {
+        type: ERROR_DISPLAY_OFF
+    }
+}
+
 
 
 
 
 export  function сommentsLoad() {
     return async dispatch => {
-        dispatch (loaderOn());
+        try{
+            dispatch (loaderOn());
         const response = await fetch("https://jsonplaceholder.typicode.com/comments?_limit=10");    
     const jsonData= await response.json();
     
@@ -71,5 +86,8 @@ export  function сommentsLoad() {
         });
         dispatch (loaderOff());
     }, 1000) 
+        }catch(err) {
+            dispatch(errorOn("Ошибка API"))
+}
     }
 }
