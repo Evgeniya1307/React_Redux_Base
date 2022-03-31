@@ -14,6 +14,12 @@ function App() {
       <div className="wrap">
         <Spin/>
         <div className="card">
+          {error &&(
+            <div className='error-message'>
+              {error}
+            </div>
+
+          )}
           <div className="card-image">
             <img src="./sea.jpg" alt="surfing"/>
            <Title/>

@@ -55,10 +55,16 @@ export  function loaderOff() {
 }
 
 export  function errorOn(text) {
-    return {
-        type: ERROR_DISPLAY_ON,
-        text
+    return dispatch=> {
+        dispatch({
+                type: ERROR_DISPLAY_ON,
+                text
+        });
+        setTimeout(()=>{
+dispatch(errorOff);
+        },2000)
     }
+    
 }
 
 
@@ -88,6 +94,6 @@ export  function сommentsLoad() {
     }, 1000) 
         }catch(err) {
             dispatch(errorOn("Ошибка API"))
-}
+}dispatch(loaderOff());
     }
 }
