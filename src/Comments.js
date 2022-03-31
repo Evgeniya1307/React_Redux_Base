@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { commentCreate } from "./redux/action";
+import { useState, useEffect} from "react";
+import { commentCreate, сommentsLoad } from "./redux/action";
 import SingleComment from "./SingleComment";
 import uniqid from "uniqid";
 import {useDispatch, useSelector} from "react-redux";
@@ -23,6 +23,10 @@ function Comments (props){
     const  id = uniqid();
     dispatch(commentCreate(textComment,id));
     }
+
+    useEffect(()=> {
+        dispatch(commentsLoad());
+    }, []);
 
     return (
         <div className="card-comments">
