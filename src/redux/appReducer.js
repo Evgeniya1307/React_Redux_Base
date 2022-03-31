@@ -1,4 +1,4 @@
-import { LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF } from "./types";
+import { LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF, ERROR_DISPLAY_OFF, ERROR_DISPLAY_ON } from "./types";
 
 
 const initialState={
@@ -19,6 +19,20 @@ export const appReducer=(state=initialState,action)=>{
                             ...state,
                             loading:false
                         }
+
+
+                        case ERROR_DISPLAY_ON:
+                            return{
+                                ...state,
+                                error:action.text
+                            }
+
+                            case ERROR_DISPLAY_OFF:
+                            return{
+                                ...state,
+                                error:null
+                            }
+
                         default:
                             return state;
                     }
