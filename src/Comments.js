@@ -25,7 +25,7 @@ function Comments (props){
     }
 
     useEffect(()=> {
-        dispatch(commentsLoad());
+        dispatch(сommentsLoad());
     }, []);
 
     return (

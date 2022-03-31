@@ -1,12 +1,15 @@
-import { COMMENTS_LOAD, COMMENT_CREATE, COMMENT_DELETE, COMMENT_UPDATE, COMMENTS_LOAD } from "./types";
+import { 
+     COMMENT_CREATE, 
+     COMMENT_DELETE, 
+     COMMENT_UPDATE,COMMENTS_LOAD }
+      from "./types";
 
 const initialState={
     comments: []
 }
 
 export const commentsReducer=(state=initialState,action)=>{
-console.log("comments Reducer>", action)
-
+console.log("comments reducer >>>", action)
 
  switch(action.type) {
     
@@ -15,7 +18,6 @@ console.log("comments Reducer>", action)
             ...state,
            comments: [...state.comments,action.data]
        }
-
 
        case COMMENTS_LOAD:
        const commentsNew = action.data.map(res=>{
