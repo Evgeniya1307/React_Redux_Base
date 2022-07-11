@@ -9,7 +9,7 @@
 .card {
   display: flex;
   padding: 20px;
-  border: 1px solid #EDEEED;
+  border: 1px solid #d8dcd8;
   box-shadow: 0 0 0 5px rgba(0,0,0,0.03);
   flex-basis: calc(33.333% - 40px);
   flex-grow: 1;
