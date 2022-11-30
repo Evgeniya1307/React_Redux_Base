@@ -1,6 +1,8 @@
 import { LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF, ERROR_DISPLAY_OFF, ERROR_DISPLAY_ON } from "./types";
 
 
+
+//начальное состояние создала
 const initialState={
     loading:"false",
     error:null
