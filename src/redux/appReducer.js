@@ -2,7 +2,7 @@ import { LOADER_DISPLAY_ON, LOADER_DISPLAY_OFF, ERROR_DISPLAY_OFF, ERROR_DISPLAY
 
 
 
-//начальное состояние создала
+
 const initialState={
     loading:"false",
     error:null
